@@ -1,0 +1,22 @@
+{
+  "name": "simple-calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator application built using Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhirocks889/Simple-Calculator.git"
+  },
+  "author": "Abhishek Buragohain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhirocks889/Simple-Calculator/issues"
+  },
+  "homepage": "https://github.com/Abhirocks889/Simple-Calculator#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
