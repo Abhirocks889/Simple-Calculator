@@ -20,14 +20,18 @@ body {
     font-size: xx-large;
     font-family: 'Nanum Gothic', sans-serif;
     background-color: rgba(1, 3, 3, 0);
-    transition: all 2s ease-in-out;
 }
 
-.buttons {
+/* .buttons {
     display: flex;
     align-items: center;
     justify-content: stretch;
     flex-wrap: wrap;
+} */
+
+.buttons {
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .input-btn {
@@ -40,6 +44,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(240, 224, 224, 0);
     transition: background-color 1s ease;
+}
+
+.clear-btn {
+    grid-column: 1 / 5;
+    width: auto;
 }
 
 .input-btn:focus {

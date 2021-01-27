@@ -4,16 +4,16 @@ let operator = '';
 let operand2 = '';
 let operand1Set = false;
 
-const result =  document.querySelector('.result');
+const result = document.querySelector('.result');
 
 /**
  * Called on every button click
  * @param value 
  */
 function onButtonClick(value) {
-    if (!!result) {
-        result.innerHTML = getResult(value);
-    }
+  if (!!result) {
+    result.innerHTML = getResult(value);
+  }
 }
 
 /**
@@ -22,36 +22,47 @@ function onButtonClick(value) {
  * @returns string
  */
 function getResult(value) {
-    let displayResult;
-    if (isOperator(value)) {
-        if (operand1Set) {
-            const computed = calculate(operand1, operand2, operator);
-            operand1 = computed;
-            operator = value;
-            operand2 = '';
-            displayResult = `${operand1} ${operator}`;
-        } else {
-            operand1Set = true;
-            operator = value;
-            operand1 = operand1 === '' ? 0 : operand1;
-            displayResult = `${operand1} ${operator}`;
-        }
-    } else if (value === '=') {
-        displayResult = calculate(operand1, operand2, operator);
-        operand2 = '';
-        operator = '';
-        operand1 = displayResult;
-        operand1Set = false;
+  let displayResult;
+  
+  if (isOperator(value)) {
+    if (operand1Set) {
+      const computed = calculate(operand1, operand2, operator);
+      operand1 = computed;
+      operator = value;
+      operand2 = '';
+      displayResult = `${operand1} ${operator}`;
     } else {
-        if (!operand1Set) {
-            operand1 += value;
-            displayResult = operand1;
-        } else {
-            operand2 += value;
-            displayResult = `${operand1} ${operator} ${operand2}`;;
-        }
+      operand1Set = true;
+      operator = value;
+      operand1 = operand1 === '' ? 0 : operand1;
+      displayResult = `${operand1} ${operator}`;
     }
-    return displayResult;
+  } else if (value === '=') {
+    displayResult = calculate(operand1, operand2, operator);
+    resetToInitialState();
+  } else if (value === 'CE') {
+    displayResult = 'Result';
+    resetToInitialState();
+  } else {
+    if (!operand1Set) {
+      operand1 += value;
+      displayResult = operand1;
+    } else {
+      operand2 += value;
+      displayResult = `${operand1} ${operator} ${operand2}`;;
+    }
+  }
+  return displayResult;
+}
+
+/**
+ * Resets the operator and the operands to the initial state
+ */
+function resetToInitialState() {
+  operand1 = '';
+  operator = '';
+  operand2 = '';
+  operand1Set = false;
 }
 
 /**
@@ -60,7 +71,7 @@ function getResult(value) {
  * @returns boolean
  */
 function isOperator(value) {
-    return value === '/' || value === 'X' || value === '+' || value === '-';
+  return value === '/' || value === 'X' || value === '+' || value === '-';
 }
 
 /**
@@ -70,18 +81,18 @@ function isOperator(value) {
  * @returns number
  */
 function calculate(operand1, operand2, operator) {
-    let op1 = operand1 !== '' ? parseInt(operand1) : 0;
-    let op2 = operand2 !== '' ? parseInt(operand2) : 0;
-    switch (operator) {
-        case '+':
-            return op1 + op2;
-        case '-':
-            return op1 - op2;
-        case 'X':
-            return op1 * op2;
-        case '/':
-            return op1 / op2;
-        default:
-            return 0;
-    }
+  operand1 = +operand1;
+  operand2 = +operand2;
+  switch (operator) {
+    case '+':
+      return operand1 + operand2;
+    case '-':
+      return operand1 - operand2;
+    case 'X':
+      return operand1 * operand2;
+    case '/':
+      return operand1 / operand2;
+    default:
+      return 0;
+  }
 }
