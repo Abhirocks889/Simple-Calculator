@@ -6,8 +6,20 @@ body {
 
 .container {
     width: 400px;
-    margin: 150px auto;
+    margin: 100px auto 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
 }
 
 .result {
@@ -35,7 +47,7 @@ body {
 }
 
 .input-btn {
-    width: 100px;
+    width: auto;
     height: 100px;
     opacity: 1;
     color:whitesmoke;
@@ -55,9 +67,9 @@ body {
     outline: none;
 }
 
-.input-btn:active {
+/* .input-btn:active {
     transform: translate(-5px, -5px);
-}
+} */
 
 .input-btn:hover {
     cursor: pointer;
