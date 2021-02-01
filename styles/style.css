@@ -44,6 +44,8 @@ body {
     opacity: 1;
     color:whitesmoke;
     font-size: xx-large;
+    position: relative;
+    overflow: hidden;
     font-family: 'Nanum Gothic', sans-serif;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-color: rgba(240, 224, 224, 0);
@@ -61,9 +63,24 @@ body {
 
 .input-btn:hover {
     cursor: pointer;
-    background-color: rgba(173, 162, 162, 0.4);
+    /* background-color: rgba(173, 162, 162, 0.4); */
 }
 
 .operators {
     background-color: rgba(173, 162, 162, 0.63);
+}
+
+.ripple-btn {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(0);
+    animation: ripple 650ms linear;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }

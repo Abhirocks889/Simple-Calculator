@@ -1,5 +1,24 @@
 const result = document.querySelector('.result');
+addRippleEffectToButtons();
 const getResult = calculator();
+
+
+function addRippleEffectToButtons() {
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach((button) => {
+    button.addEventListener('click', function() {
+      const rippleBtn = document.createElement('div');
+      rippleBtn.style.width = this.offsetWidth + 'px';
+      rippleBtn.style.height = this.offsetHeight + 'px';
+      rippleBtn.classList.add('ripple-btn');
+      if (button.childNodes.length > 1) {
+        const rpl = button.childNodes[1];
+        button.removeChild(rpl);
+      }
+      button.appendChild(rippleBtn);
+    });
+  });
+}
 
 /**
  * Called on every button click
