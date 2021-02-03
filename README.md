@@ -12,3 +12,8 @@ A simple calculator application built using Vanilla JS, HTML and CSS
 #### `Run the app`
 
     npm start
+
+
+#### `Run unit tests`
+
+    npm test
