@@ -4,7 +4,8 @@
   "description": "A simple calculator application built using Vanilla JS",
   "main": "index.js",
   "scripts": {
-    "start": "live-server"
+    "start": "live-server",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/Abhirocks889/Simple-Calculator#readme",
   "devDependencies": {
+    "jest": "^26.6.3",
     "live-server": "^1.2.1"
   }
 }
